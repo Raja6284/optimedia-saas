@@ -66,6 +66,7 @@ const socialFormats = {
             link.download = `${selectedFormat
           .replace(/\s+/g, "_")
           .toLowerCase()}.png`;
+        //link.download = ''
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
