@@ -1,16 +1,36 @@
-import { ReactNode } from 'react';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Create Account | Your App',
-  description: 'Create your account to get started',
-};
+import { ReactNode, useState, useEffect } from 'react';
 
 interface AuthLayoutProps {
   children: ReactNode;
 }
 
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center py-12">
+      <div className="relative">
+        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">Loading...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AuthSignUpLayout({ children }: AuthLayoutProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time - adjust as needed
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <div className="flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
@@ -25,8 +45,8 @@ export default function AuthSignUpLayout({ children }: AuthLayoutProps) {
           </header>
           
           <main className="mt-8">
-            <div className="bg-white rounded-xl shadow-lg border border-gray-200 px-6 py-8 sm:px-8">
-              {children}
+            <div className="bg-gray-200 rounded-xl shadow-lg border border-gray-200 px-1 p-1 sm:p-6 lg:p-8">
+              {isLoading ? <LoadingSpinner /> : children}
             </div>
           </main>
           
