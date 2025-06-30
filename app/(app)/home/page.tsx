@@ -3,6 +3,21 @@ import React, {useState, useEffect, useCallback} from 'react'
 import axios from 'axios'
 import VideoCard from '@/components/VideoCard'
 import { Video } from "../../../types/index"
+
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center py-12">
+      <div className="relative">
+        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">Loading...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 function Home() {
     const [videos, setVideos] = useState<Video[]>([])
     const [loading, setLoading] = useState(true)
@@ -58,7 +73,7 @@ function Home() {
 
 
     if(loading){
-        return <div>Loading...</div>
+        return <LoadingSpinner/>
     }
 
     return (
