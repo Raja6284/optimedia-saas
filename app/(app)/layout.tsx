@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 "use client";
 
@@ -13,7 +14,7 @@ import {
   UploadIcon,
   ImageIcon,
 } from "lucide-react";
-import Image from "next/image";
+
 
 const sidebarItems = [
   { href: "/home", icon: LayoutDashboardIcon, label: "Home Page" },
