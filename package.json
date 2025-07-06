@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.23.0",
+    "@imgly/background-removal": "^1.6.0",
     "@prisma/client": "^6.10.1",
     "@tailwindcss/postcss": "^4.1.11",
     "axios": "^1.10.0",
@@ -20,6 +21,7 @@
     "lucide-react": "^0.523.0",
     "next": "15.3.4",
     "next-cloudinary": "^6.16.0",
+    "onnxruntime-web": "^1.21.0-dev.20250206-d981b153d3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
